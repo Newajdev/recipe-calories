@@ -5,7 +5,7 @@ import { CgProfile } from "react-icons/cg";
 const Navbar = () => {
     return (
         <div className='flex justify-between items-center py-12'>
-            <h1 className='text-BaseTitle font-bold text-3xl'>Recipe Calories</h1>
+            <h3 className='text-BaseTitle font-bold text-3xl'>Recipe Calories</h3>
 
             <ul className='flex gap-5'>
                 <ListItem ItemName={'home'} Style={''}></ListItem>
@@ -16,7 +16,7 @@ const Navbar = () => {
 
             <div className='flex justify-center items-center gap-4 w-3/12 '>
                 <div className='flex items-center gap-2 py-3 pl-6 bg-Black5 rounded-full grow text-Black60 hover:cursor-text'><LuSearch />Search</div>
-                <div className='text-2xl p-3 bg-Primary rounded-full text'><CgProfile /></div>
+                <div className='text-2xl p-3 bg-Primary rounded-full text border-2 border-transparent hover:border-BaseTitle  hover:bg-transparent duration-500 hover:cursor-pointer'><CgProfile /></div>
             </div>
 
         </div>
