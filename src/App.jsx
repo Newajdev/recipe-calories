@@ -1,13 +1,26 @@
+import { useEffect, useState } from 'react'
 import './App.css'
-import Container from './components/Container'
+import Container from './components/Container';
+
 
 function App() {
 
+  const [AllRecipes, setAllRecipes] = useState([]);
+
+  useEffect(() => {
+    fetch('Recipes.json')
+      .then(res => res.json())
+      .then(data => setAllRecipes(data))
+  }, [])
+
+  // console.log(AllRecipes);
+  
+
 
   return (
-    <>
-    <Container></Container>      
-    </>
+    <div>
+      <Container AllRecipes={AllRecipes}></Container>      
+    </div>
   )
 }
 

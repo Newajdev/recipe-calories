@@ -1,7 +1,6 @@
-import React from 'react';
 import HeroTitle from './HeroTitle';
 import HeroDes from './HeroDes';
-import Button from '../Button';
+import PremaryBtn from '../PremaryBtn';
 
 
 const HeroContent = () => {
@@ -10,8 +9,8 @@ const HeroContent = () => {
             <HeroTitle Title={'Discover an exceptional cooking class tailored for you!'} Style={''}></HeroTitle>
             <HeroDes Description={'Learn and Master Basic Programming, Data Structures, Algorithm, OOP, Database and solve 500+ coding problems to become an exceptionally well world-class Programmer.'}></HeroDes>
             <div className='flex gap-6 justify-center'>
-                <Button BtnTitle={'Explore More'} Style={''}></Button>
-                <Button BtnTitle={'Our Feedback'} Style={''}></Button>
+                <PremaryBtn BtnTitle={'Explore More'} Style={''}></PremaryBtn>
+                <PremaryBtn BtnTitle={'Our Feedback'} Style={''}></PremaryBtn>
             </div>
         </div>
     );
