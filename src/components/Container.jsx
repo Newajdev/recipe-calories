@@ -2,8 +2,10 @@ import Navbar from './navbar/Navbar';
 import HeroContent from './herosection/HeroContent';
 import Content from './ourrecipes/Content';
 import RecipeS from './ourrecipes/RecipeS';
-import WantToCook from './ourrecipes/WantToCook';
+import WantToCook from './cooking/WantToCook';
+import Cooking from './cooking/Cooking';
 import { useState } from 'react';
+
 
 
 
@@ -12,30 +14,26 @@ import { useState } from 'react';
 const Container = ({ AllRecipes }) => {
     const RecipeCon = AllRecipes;
 
+    const [wcook, setwcook] = useState([])
 
-    const [wcook, setwcook ]=useState([]);
-    const [Cooking, setCooking] = useState([])
-  
-
-    const HendlerWantsCook = (recipe) =>{
-        const newCook = [...wcook, recipe ];
-        setwcook(newCook);
-
+    const HendlerWantsCook =(recipe)=>{
+        const newWantsCook = [...wcook, recipe ]
+        setwcook(newWantsCook)
     }
 
-    const HendlerCooking = (wcook)=>{
-        const newCooking = [...Cooking, wcook]
-        setCooking(newCooking)
+    const [cooking, setcooking] = useState([]);
+
+    const HendlerPreparing =(id, cook)=>{
+        const newPreparing = [...cooking, cook]
+        setcooking(newPreparing);
+
+        const isPreparing =  wcook.filter(wcook => wcook.id !==id);
+        setwcook(isPreparing)
+
     }
-
-    console.log(Cooking);
-    
-
     
     
-
     
-
 
     return (
         <div className='max-w-7xl m-auto'>
@@ -46,8 +44,9 @@ const Container = ({ AllRecipes }) => {
                 <div className='w-[65%]'>
                     <RecipeS RecipeCon={RecipeCon} HendlerWantsCook={HendlerWantsCook}></RecipeS>
                 </div>
-                <div className='w-[35%] border-2 rounded-2xl'>
-                    <WantToCook wcook={wcook} HendlerCooking={HendlerCooking}></WantToCook>
+                <div className='w-[35%] border-2 rounded-2xl py-8'>
+                    <WantToCook wcook={wcook} HendlerPreparing={HendlerPreparing}></WantToCook>
+                    <Cooking cooking={cooking}></Cooking>
                 </div>
             </div>
         </div>
